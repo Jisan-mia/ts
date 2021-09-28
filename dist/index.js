@@ -168,15 +168,27 @@ var add = function (x, y) { return x + y; };
         - so we can pass parameters to constructor and initialize those to properties
           by adding this. before property name
 
+
+  # there is another thing called data modifiers
+    - now Person class properties are public means we can modify/change there values outside of that class
+    - we can make properties private by adding private keyword before properties name (mean we can only access/modify these properties withing the class)
+    - we can make properties protected by adding private keyword before properties name (access it only access within either this class or any class that is extended from this class )
 */
 var Person = /** @class */ (function () {
-    function Person(id, name) {
+    function Person(id, roomId, firstName, lastName) {
         this.id = id;
-        this.name = name;
+        this.roomId = roomId;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
+    // methods
+    Person.prototype.getFullName = function () {
+        return "Full Name: " + this.firstName + " " + this.lastName;
+    };
     return Person;
 }());
 // initializing/instantiated an object to Person class
-var jisan = new Person(25, 'Jisan');
-var mark = new Person(33, 'Mark');
-console.log(jisan);
+var jisan = new Person(25, '23432', 'Jisan', 'Mia');
+var mark = new Person(33, '323s4', 'Mark', 'Adher');
+// calling getFullName method of Person class with jsian object
+console.log(jisan.getFullName());

@@ -269,19 +269,35 @@ const add: MathFunc = (x: number, y: number) : number => x + y
         - so we can pass parameters to constructor and initialize those to properties 
           by adding this. before property name 
 
+
+  # there is another thing called data modifiers
+    - now Person class properties are public means we can modify/change there values outside of that class
+    - we can make properties private by adding private keyword before properties name (mean we can only access/modify these properties withing the class)
+    - we can make properties protected by adding private keyword before properties name (access it only access within either this class or any class that is extended from this class )
 */
 
 class Person {
-  id: number
-  name: string
+  private id: number
+  protected roomId: string
+  firstName: string
+  lastName: string
 
-  constructor (id: number, name: string) {
+
+  constructor (id: number, roomId: string, firstName: string, lastName: string) {
     this.id = id
-    this.name = name
+    this.roomId = roomId
+    this.firstName = firstName
+    this.lastName = lastName
+  }
+  // methods
+  getFullName() {
+    return `Full Name: ${this.firstName} ${this.lastName}`
   }
 
 }
 // initializing/instantiated an object to Person class
-const jisan = new Person(25, 'Jisan')
-const mark = new Person(33, 'Mark')
-console.log(jisan)
+const jisan = new Person(25, '23432', 'Jisan', 'Mia')
+const mark = new Person(33, '323s4', 'Mark','Adher')
+
+// calling getFullName method of Person class with jsian object
+console.log(jisan.getFullName())
