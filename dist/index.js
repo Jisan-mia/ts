@@ -131,9 +131,6 @@ var code = 200;
 var employeeCode = code;
 // 2. using as keyword
 var employeeCode2 = code;
-var employeeObj = {};
-employeeObj.name = 'Jhon';
-employeeObj.id = 23;
 // Functions
 /*
 - in functions we can give type to arguments as well as to the return value
@@ -151,3 +148,28 @@ function logMe(message) {
     console.log(message);
 }
 logMe('Hey, me void');
+var employeeObj = {
+    id: 23,
+    name: 'Jhon',
+};
+employeeObj.name = 'Mark'; // can change
+var subtract = function (a, b) { return a + b; };
+// Classes
+/*
+  classes are used to create objects. With class we can create multiple objects
+*/
+var Person = /** @class */ (function () {
+    function Person(id, roomId, name) {
+        this.id = id;
+        this.roomId = roomId;
+        this.name = name;
+    }
+    Person.prototype.register = function () {
+        return this.name + " is now registered";
+    };
+    return Person;
+}());
+var jisan = new Person(32, 44, 'Jisan');
+var mike = new Person(32, 22, 'Mike');
+console.log(jisan.register());
+// jisan.id = 5 // cannot change outside of that class as it is private 
