@@ -249,3 +249,39 @@ employeeObj.name = 'Mark' // can change
 */
 
 // interface with functions
+interface MathFunc {
+  (x: number, y: number) : number
+}
+const add: MathFunc = (x: number, y: number) : number => x + y
+
+
+// Classes
+/* 
+  Classes are now available in JavaScript since es6 were introduced.
+  Classes are used to create objects(multiple) of class is a blueprint of object
+  To create class->
+    - first class keyword (class)
+    - class Name (Person)
+    - bracket {} and some properties(class can have properties and methods)
+    - constructor method
+        - it is a method where wee need to initialize values for class properties
+        - constructor method/function will run whenever we instantiated an object 
+        - so we can pass parameters to constructor and initialize those to properties 
+          by adding this. before property name 
+
+*/
+
+class Person {
+  id: number
+  name: string
+
+  constructor (id: number, name: string) {
+    this.id = id
+    this.name = name
+  }
+
+}
+// initializing/instantiated an object to Person class
+const jisan = new Person(25, 'Jisan')
+const mark = new Person(33, 'Mark')
+console.log(jisan)

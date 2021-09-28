@@ -153,14 +153,30 @@ var employeeObj = {
     name: 'Jhon',
 };
 employeeObj.name = 'Mark'; // can change
-// employeeObj.id = 5 // can't change as id is readOnly
+var add = function (x, y) { return x + y; };
+// Classes
 /*
-  Note: We cannot use union and primitive in interface
-  => We can do this
-  type Pointer = number | string
-  const p1: Pointer = 1
-  => but cannot in interface
-  interface Pointer = number | string (thrown error)
-  const p1: Pointer = 1
+  Classes are now available in JavaScript since es6 were introduced.
+  Classes are used to create objects(multiple) of class is a blueprint of object
+  To create class->
+    - first class keyword (class)
+    - class Name (Person)
+    - bracket {} and some properties(class can have properties and methods)
+    - constructor method
+        - it is a method where wee need to initialize values for class properties
+        - constructor method/function will run whenever we instantiated an object
+        - so we can pass parameters to constructor and initialize those to properties
+          by adding this. before property name
+
 */
-// interface with functions
+var Person = /** @class */ (function () {
+    function Person(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    return Person;
+}());
+// initializing/instantiated an object to Person class
+var jisan = new Person(25, 'Jisan');
+var mark = new Person(33, 'Mark');
+console.log(jisan);
