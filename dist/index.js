@@ -116,3 +116,38 @@ var student1 = {
     id: 1,
     name: 'Jisan Mia'
 };
+// Type Assertion
+/*
+  - Let's assume we have a variable named code with a type of any and value 213
+  - we have another variable named employeeCode. It uses the code variable value as its value.
+  - but in this case we know that the number of employeeCode must be a number. though we already assigned code which has any type
+  - in this case we can use type assertion to say that employeeCode value is number
+
+  there are two ways to do type assertion in ts
+  below are examples
+*/
+// 1. using angular bracket
+var code = 200;
+var employeeCode = code;
+// 2. using as keyword
+var employeeCode2 = code;
+var employeeObj = {};
+employeeObj.name = 'Jhon';
+employeeObj.id = 23;
+// Functions
+/*
+- in functions we can give type to arguments as well as to the return value
+- arguments types define what types of value we can pass
+- return type defines what types of value we can return from a function
+
+Note: sometimes we don't want to return any any value from function, maybe we just want to console.log() something. In that case we can use void as function return type
+*/
+function addTwoNum(a, b) {
+    return a + b;
+}
+console.log(addTwoNum(5, 20));
+// function that return void(nothing)
+function logMe(message) {
+    console.log(message);
+}
+logMe('Hey, me void');
