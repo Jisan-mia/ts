@@ -195,7 +195,7 @@ function logMe(message: string): void {
 logMe('Hey, me void')
 
 
-// interfaces
+// Interfaces
 /* 
  - interface is kind of like specific   structure of types for an object or functions
 
@@ -243,6 +243,7 @@ employeeObj.name = 'Mark' // can change
   interface Pointer = number | string (thrown error)
   const p1: Pointer = 1
 */
+
 
 // interface with functions
 interface MathFunc {
