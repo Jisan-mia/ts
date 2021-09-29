@@ -239,6 +239,7 @@ let's imagine we need teachers objects, for this we can create Teacher class. No
  - Teacher as a subclass of StudentInfo inherits all the members(fields, methods etc).
  - and since constructs are not members they are not inherited by subclasses.
 */
+// subclass
 var Teacher = /** @class */ (function (_super) {
     __extends(Teacher, _super);
     function Teacher(roll, name, isPresent, position) {
@@ -253,3 +254,26 @@ var teacher2 = new Teacher(3423, 'Arif', false, 'Assistant');
 console.log(teacher1.position);
 // calling student class method from teacher a object created from teacher class
 console.log(teacher2.checkAvailability());
+// Generics
+/*
+- Now, we want a reusable function that can perform some task for different types of values
+- lets say we have a function that takes array as arg. and return arr
+- the array values type can be number or string
+- we can use any type to function
+- but if we do that, we won't get any error when we push different types values to the array
+- to solve this problem we can use generics
+- to implement this
+  - after function name, use angular bracket(<>)
+  - inside <> write something and then use this word as type for parameter and return value
+  - when we call this function with array of number or string as parameter
+  - we should write the respected type of array value after the function name
+  - ex functionName<typeName>([value])
+  - that's it
+*/
+function getArray(item) {
+    return new Array().concat(item);
+}
+var numArr = getArray([1, 2, 3, 4]);
+var strArr = getArray(['jisan', 'shawon', 'Porag']);
+// numArr.push('something') we cannot add string to number array
+// strArr.push(5) we cannot add numbers to string array
