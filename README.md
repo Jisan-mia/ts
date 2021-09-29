@@ -44,8 +44,9 @@ Environment Setup:
   - Using npm `npm i -g typescript`
   - Using yarn `yarn add global typescript`
 - Create a folder with .ts extension
+- Check TypeScript version by running this `tsc -v` on your terminal
 - In the terminal type `tsc fileName` it will compile ts file down to js
-- To manage how to compile a typescript file in terminal type ``
+- To manage how to compile a typescript file in terminal type `tsc --init`
 - And it will create a `tsconfig.json` file where you can manage your ts file compilation and others
 - You are all done to maker your hands dirty with ts
 
