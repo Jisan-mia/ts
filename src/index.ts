@@ -4,7 +4,7 @@
 
   i) variable-keyword(var/let/const) 
   ii) variableName(studentName, id etc)
-  iii) clone(:) 
+  iii) colon(:) 
   iv) what type of variable it is? (number, string etc)
   v) assignment-operator(=)
   vi) value of that type
@@ -30,6 +30,7 @@ let studentName: string = 'Jisan';
 let isPresentToday: boolean = true;
 let x: any = 'Hi';
 x = 10
+
 
 // Arrays & Tuples
 /* 

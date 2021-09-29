@@ -5,7 +5,7 @@
 
   i) variable-keyword(var/let/const)
   ii) variableName(studentName, id etc)
-  iii) clone(:)
+  iii) colon(:)
   iv) what type of variable it is? (number, string etc)
   v) assignment-operator(=)
   vi) value of that type
