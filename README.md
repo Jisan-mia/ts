@@ -9,6 +9,7 @@ TypeScript is an open source language and is a superset of JavaScript
 - Types from 3rd party libraries can be added with type definitions.
 
 ### Dynamic vs Static Typing
+
 | Dynamic      | Static |
 | ----------- | ----------- |
 | In **dynamically typed languages**, the types are associated with run-time values and not named explicitly in your code      | In **statically typed languages**, you explicitly assign types to variables, function parameters, return values, etc |
@@ -25,6 +26,8 @@ TypeScript is an open source language and is a superset of JavaScript
 
 ### States of Compiling TypeScript
 
+---
+
 - TypeScript uses .ts and .tsx (working JSX like React) extension
 - TSC (TypeScript Compiler) is used to compile .ts file down to JS
 - Can watch files and report errors at compile time
@@ -33,6 +36,9 @@ TypeScript is an open source language and is a superset of JavaScript
 - The tsconfig.json file is used to configure how TypeScript works
 
 ### Lets make our hand dirty with TypeScript
+
+---
+
 Environment Setup:
 - First we need to install TypeScript globally in our machine
   - Using npm `npm i -g typescript`
@@ -45,6 +51,9 @@ Environment Setup:
 
 
 ### Basic Types in TypeScript
+
+---
+
 I assume you know what is variable in JS (to remind you again, variables are like container where we can store data/values and can access or modify them later)
 
 Steps to create a variable with types in Typescript
@@ -98,6 +107,9 @@ x = 10
 ```
 
 ### Arrays 
+
+---
+
 Lets say we need an array of number/string etc.
   - We can define types of array values by writing the type of values and bracket []
   eg. `let nums: [number]` 
@@ -111,6 +123,9 @@ let arr: any[] = [5, false, 'hello']
 ```
 
 ### Tuples
+
+---
+
 If we don't want to set any[] type to array instead we want to set types for every value of an array. 
    - Here we can use tuple
    below is an example
@@ -129,6 +144,9 @@ employee = [
 ```
 
 ### Union
+
+---
+
 - Lets say, wee have some products and each has *productId*, the value of this can be a number or a randomly generated string
 
 - Question is how do we set type to variable which value could be one or another types?
@@ -143,6 +161,9 @@ productId = 3321
 ```
 
 ### Enum or enumerate types
+
+---
+
 Enum allows us to define a set of named ***constants***. Using **enums** can make it easier to document intent, or create a set of distinct cases. TypeScript provides both **numeric** and **string-based** enums.
 
 To *define/create* an enum
@@ -178,6 +199,9 @@ console.log(SubjectsCodes.chemistry)
 ```
 
 ### Objects
+
+---
+
 We have a student object which includes *id* and *name* attributes. Now, how to set types for id and name for this **object**. 
 
 Follow the blow example  
@@ -209,6 +233,8 @@ const student1: Student1 = {
 
 ### Type Assertion
 
+---
+
 - Let's assume we have a variable named **code** with a type of any and value **213**
 - we have another variable named **employeeCode**. It uses the code variable value as its value. 
 - but in this case we know that the number of employeeCode must be a **number**. though we already assigned code which has *any type*
@@ -228,6 +254,8 @@ let employeeCode2 = code as number;
 
 
 ### Functions
+
+---
 
 - in functions we can give type to ***arguments*** as well as to the return ***value***
 - arguments types define what types of value we can pass 
@@ -251,6 +279,8 @@ logMe('Hey, me void')
 ```
 
 ### Interfaces
+
+---
 
 - Interface is kind of like specific structure of types for an **object or functions**
 
@@ -308,6 +338,9 @@ But cannot in interface
 
 ### Interface with functions
 
+---
+
+
 ```ts
 interface MathFunc {
   (x: number, y: number) : number
@@ -318,6 +351,8 @@ const add: MathFunc = (x: number, y: number) : number => x + y
 
 
 ### Classes
+
+---
 
 Classes are now available in JavaScript since es6 were introduced. Classes are used to create objects(multiple) or class is a blueprint of object
 
@@ -369,6 +404,9 @@ console.log(jisan.getFullName())
 ```
 
 ### Implement interface in class
+
+---
+
 Create an interface for student information then implement it on class following below
 
 ```ts
@@ -405,6 +443,10 @@ console.log(studentOne.checkAvailability())
 
 
 ### Extending classes or subclasses
+
+---
+
+
 Let's imagine we need **teachers** objects, for this we can create Teacher class. Now think of the possible **properties** for a teacher.
  - teacher has **id/roll**
  - teacher has **name**
@@ -449,19 +491,21 @@ console.log(teacher2.checkAvailability())
 
 ### Generics
 
-- Now, we want a reusable function that can perform some task for different types of values
-- lets say we have a function that takes array as arg. and return arr
-- the array values type can be number or string
-- we can use any type to function
-- but if we do that, we won't get any error when we push different types values to the array
-- to solve this problem we can use generics
+--- 
 
-To implement this -> 
-- after function name, use angular bracket(<>)
-- inside <> write something and then use this word as type for parameter and return value
+Now, we want a **reusable** function that can perform some task for different types of values
+- lets say we have a function that takes **array** as arg. and return **arr**
+- the array values type can be **number** or **string**
+- we can use **any type** to function
+- but if we do that, we won't get any error when we push different types values to the **array**
+- to **solve** this problem we can use **generics**
+
+To **implement** this -> 
+- after function name, use **angular bracket(<>)**
+- inside **<>** write something and then use this word as type for **parameter** and **return value**
 - when we call this function with array of number or string as parameter 
-- we should write the respected type of array value after the function name
-- ex functionName<typeName>([value])
+- we should write the **respected** **type** of array value after the function name
+- ex `functionName<typeName>([value])`
 - that's it
 
 

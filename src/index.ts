@@ -245,11 +245,7 @@ employeeObj.name = 'Mark' // can change
 */
 
 
-// interface with functions
-interface MathFunc {
-  (x: number, y: number) : number
-}
-const add: MathFunc = (x: number, y: number) : number => x + y
+
 
 
 
@@ -259,7 +255,7 @@ const add: MathFunc = (x: number, y: number) : number => x + y
 // Classes
 /* 
   Classes are now available in JavaScript since es6 were introduced.
-  Classes are used to create objects(multiple) of class is a blueprint of object
+  Classes are used to create objects(multiple) or class is a blueprint of object
   To create class->
     - first class keyword (class)
     - class Name (Person)
@@ -274,7 +270,7 @@ const add: MathFunc = (x: number, y: number) : number => x + y
   # there is another thing called data modifiers
     - now Person class properties are public means we can modify/change there values outside of that class
     - we can make properties private by adding private keyword before properties name (mean we can only access/modify these properties withing the class)
-    - we can make properties protected by adding private keyword before properties name (access it only access within either this class or any class that is extended from this class )
+    - we can make properties protected by adding protected keyword before properties name (access it only access within either this class or any class that is extended from this class )
 */
 
 class Person {

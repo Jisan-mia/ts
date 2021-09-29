@@ -168,11 +168,20 @@ var employeeObj = {
     name: 'Jhon',
 };
 employeeObj.name = 'Mark'; // can change
-var add = function (x, y) { return x + y; };
+// employeeObj.id = 5 // can't change as id is readOnly
+/*
+  Note: We cannot use union and primitive in interface
+  => We can do this
+  type Pointer = number | string
+  const p1: Pointer = 1
+  => but cannot in interface
+  interface Pointer = number | string (thrown error)
+  const p1: Pointer = 1
+*/
 // Classes
 /*
   Classes are now available in JavaScript since es6 were introduced.
-  Classes are used to create objects(multiple) of class is a blueprint of object
+  Classes are used to create objects(multiple) or class is a blueprint of object
   To create class->
     - first class keyword (class)
     - class Name (Person)
@@ -187,7 +196,7 @@ var add = function (x, y) { return x + y; };
   # there is another thing called data modifiers
     - now Person class properties are public means we can modify/change there values outside of that class
     - we can make properties private by adding private keyword before properties name (mean we can only access/modify these properties withing the class)
-    - we can make properties protected by adding private keyword before properties name (access it only access within either this class or any class that is extended from this class )
+    - we can make properties protected by adding protected keyword before properties name (access it only access within either this class or any class that is extended from this class )
 */
 var Person = /** @class */ (function () {
     function Person(id, roomId, firstName, lastName) {
