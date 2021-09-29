@@ -152,11 +152,6 @@ const student1: Student1 = {
 
 
 
-
-
-
-
-
 // Type Assertion
 /* 
   - Let's assume we have a variable named code with a type of any and value 213

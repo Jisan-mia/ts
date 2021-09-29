@@ -97,4 +97,131 @@ let x: any = 'Hi';
 x = 10
 ```
 
-### Arrays & Tuples
+### Arrays 
+Lets say we need an array of number/string etc.
+  - We can define types of array values by writing the type of values and bracket []
+  eg. `let nums: [number]` 
+  - Now, we cannot add values to that array of another types
+  - ***Note:*** if the type is any(any[]) then we can add different types values on that array
+  eg.` let arr: any[] = [1, 'hi', true]`
+```ts
+// examples
+let nums: number[] = [1, 2, 3, 4, 5]3
+let arr: any[] = [5, false, 'hello']
+```
+
+### Tuples
+If we don't want to set any[] type to array instead we want to set types for every value of an array. 
+   - Here we can use tuple
+   below is an example
+```ts
+   
+let person: [number, string, boolean] = [3, 'Jisan', true]
+
+// Tuple array
+let employee: [number, string][]
+
+employee = [
+  [5, 'Jack'],
+  [6, 'Doe'],
+  [7, 'Jhon']
+]
+```
+
+### Union
+- Lets say, wee have some products and each has *productId*, the value of this can be a number or a randomly generated string
+
+- Question is how do we set type to variable which value could be one or another types?
+
+- Here it come ***union***, 
+all we need to do is set multiple types separated a ***Pipe ( | ) character***
+```ts
+// example
+let productId: number | string;
+productId = '234xcfswe323'
+productId = 3321
+```
+
+### Enum or enumerate types
+Enum allows us to define a set of named ***constants***. Using **enums** can make it easier to document intent, or create a set of distinct cases. TypeScript provides both **numeric** and **string-based** enums.
+
+To *define/create* an enum
+- write enum keyword(**enum**)
+- enum name with Capital (first letter)
+- second bracket **{}**
+- constants separated by comma (,)
+  - By default *constants* value are numeric and starts from 0
+  - if we **implicitly** set values (**numeric**) to any particular enum constant, other constants (which are after that constant) value would be **incremented by one**
+  - on the other hand, if we implicitly set value to one of the constants as **string**, we need to set value to the next **constant** as well.
+
+To get enum particular constant value
+  - First type enum Name(**SubjectsCodes**)
+  - **dot(.)** and
+  - constant name inside that enum(**math**)
+
+```ts
+// examples
+enum Directions {
+  top, // value is 0
+  right, // value is 1
+  bottom = 5,  // value is 5
+  left // value is 6
+}
+
+enum SubjectsCodes {
+  math = '23432',
+  physics = '34234',
+  chemistry = '32423'
+}
+
+console.log(SubjectsCodes.chemistry)
+```
+
+### Objects
+We have a student object which includes *id* and *name* attributes. Now, how to set types for id and name for this **object**. 
+
+Follow the blow example  
+
+```ts
+// one way of writing types for objects
+const student: {
+  id: number,
+  name: string
+} = {
+  id: 2,
+  name: 'Jisan'
+}
+
+
+// another way is to create type in external variable for the object like this
+type Student1 = {
+  id: number,
+  name: string
+}
+
+const student1: Student1 = {
+  id: 1,
+  name: 'Jisan Mia'
+}
+
+```
+
+
+### Type Assertion
+
+- Let's assume we have a variable named **code** with a type of any and value **213**
+- we have another variable named **employeeCode**. It uses the code variable value as its value. 
+- but in this case we know that the number of employeeCode must be a **number**. though we already assigned code which has *any type*
+- in this case we can use ***type assertion*** to say that employeeCode value is number
+
+there are **two ways** to do type assertion in ts
+below are examples
+
+```ts
+// 1. using angular bracket
+let code: any = 200;
+let employeeCode = <number> code;
+
+// 2. using as keyword
+let employeeCode2 = code as number;
+```
