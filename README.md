@@ -42,7 +42,7 @@ TypeScript is an open source language and is a superset of JavaScript
 Environment Setup:
 - First we need to install TypeScript globally in our machine
   - Using npm `npm i -g typescript`
-  - Using yarn `yarn add global typescript`
+  - Using yarn `yarn global add typescript`
 - Create a folder with .ts extension
 - Check TypeScript version by running this `tsc -v` on your terminal
 - In the terminal type `tsc fileName` it will compile ts file down to js
@@ -82,7 +82,7 @@ let salary: number = 20000
 salary = 'twentyK' // error
 ```
 
-**Note-2**: But when we implicitly set a variable type to any, we can change this with any other types of value later.
+**Note-2**: But when we explicitly set a variable type to any, we can change this with any other types of value later.
 ```ts
 let x: any = 'hi'
 x = 5 // ok
@@ -173,8 +173,8 @@ To *define/create* an enum
 - second bracket **{}**
 - constants separated by comma (,)
   - By default *constants* value are numeric and starts from 0
-  - if we **implicitly** set values (**numeric**) to any particular enum constant, other constants (which are after that constant) value would be **incremented by one**
-  - on the other hand, if we implicitly set value to one of the constants as **string**, we need to set value to the next **constant** as well.
+  - if we **explicitly** set values (**numeric**) to any particular enum constant, other constants (which are after that constant) value would be **incremented by one**
+  - on the other hand, if we explicitly set value to one of the constants as **string**, we need to set value to the next **constant** as well.
 
 To get enum particular constant value
   - First type enum Name(**SubjectsCodes**)
