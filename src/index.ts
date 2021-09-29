@@ -255,6 +255,10 @@ interface MathFunc {
 const add: MathFunc = (x: number, y: number) : number => x + y
 
 
+
+
+
+
 // Classes
 /* 
   Classes are now available in JavaScript since es6 were introduced.
@@ -301,3 +305,34 @@ const mark = new Person(33, '323s4', 'Mark','Adher')
 
 // calling getFullName method of Person class with jsian object
 console.log(jisan.getFullName())
+
+
+// Implement interface in class
+// create an interface for student information then implement on class following below
+interface studentInterface {
+    roll: number
+    name: string
+    isPresent: boolean
+    checkAvailability(): string
+}
+class StudentInfo implements studentInterface {
+  roll: number
+  name: string
+  isPresent: boolean
+
+  constructor (roll: number, name: string, isPresent: boolean) {
+    this.roll = roll
+    this.name =  name
+    this.isPresent = isPresent
+  }
+
+  checkAvailability() {
+    return `${this.name} is ${this.isPresent ? 'present' : 'not present'}`
+  }
+  
+}
+
+const studentOne = new StudentInfo(1, 'Jisan', true)
+const studentTwo = new StudentInfo(2, 'Mursalin', false)
+
+console.log(studentOne.checkAvailability())

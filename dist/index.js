@@ -192,3 +192,17 @@ var jisan = new Person(25, '23432', 'Jisan', 'Mia');
 var mark = new Person(33, '323s4', 'Mark', 'Adher');
 // calling getFullName method of Person class with jsian object
 console.log(jisan.getFullName());
+var StudentInfo = /** @class */ (function () {
+    function StudentInfo(roll, name, isPresent) {
+        this.roll = roll;
+        this.name = name;
+        this.isPresent = isPresent;
+    }
+    StudentInfo.prototype.checkAvailability = function () {
+        return this.name + " is " + (this.isPresent ? 'present' : 'not present');
+    };
+    return StudentInfo;
+}());
+var studentOne = new StudentInfo(1, 'Jisan', true);
+var studentTwo = new StudentInfo(2, 'Mursalin', false);
+console.log(studentOne.checkAvailability());
