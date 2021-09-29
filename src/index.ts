@@ -308,7 +308,7 @@ console.log(jisan.getFullName())
 
 
 // Implement interface in class
-// create an interface for student information then implement on class following below
+// create an interface for student information then implement it on class following below
 interface studentInterface {
     roll: number
     name: string
@@ -336,3 +336,40 @@ const studentOne = new StudentInfo(1, 'Jisan', true)
 const studentTwo = new StudentInfo(2, 'Mursalin', false)
 
 console.log(studentOne.checkAvailability())
+
+
+
+//  Extending classes or subclasses
+/* 
+let's imagine we need teachers objects, for this we can create Teacher class. Now think of the possible properties for a teacher.
+ - teacher has id/roll
+ - teacher has name
+ - teacher can be present or absent
+ - teacher has a position(head, assistant etc)
+
+ - comparing teacher with student, teacher has 4 property and 3 of them are same as student properties, 
+ - and the 4th property of teacher is new
+ - So what we do, shall we create teacher class with all properties again, 
+ - or is there any way to use Student class in Teacher class
+ - Yeah, there is.
+ - we can extend StudentInfo class to Teacher class by using extends keyword.
+ - and in constructor use super keyword to call the members(properties, methods) of the Super class(StudentInfo).
+ - Teacher as a subclass of StudentInfo inherits all the members(fields, methods etc). 
+ - and since constructs are not members they are not inherited by subclasses.
+*/
+
+class Teacher extends StudentInfo {
+  position: string
+
+  constructor(roll: number, name: string, isPresent: boolean, position: string) {
+
+    super(roll, name, isPresent)
+    this.position = position
+  }
+}
+
+const teacher1 = new Teacher(2313, 'Rahman', true, 'Head')
+const teacher2 = new Teacher(3423, 'Arif', false, 'Assistant')
+console.log(teacher1.position)
+// calling student class method from teacher a object created from teacher class
+console.log(teacher2.checkAvailability())

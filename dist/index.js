@@ -23,6 +23,21 @@
   Note:A variable declared with a particular type of value cannot be changed to another type of value
   Note2: But when we implicitly set a variable type to any(let x: any = 'hi'), we can change this with any other types of value.
 */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // examples
 var studentId = 5;
 var studentName = 'Jisan';
@@ -206,3 +221,35 @@ var StudentInfo = /** @class */ (function () {
 var studentOne = new StudentInfo(1, 'Jisan', true);
 var studentTwo = new StudentInfo(2, 'Mursalin', false);
 console.log(studentOne.checkAvailability());
+//  Extending classes or subclasses
+/*
+let's imagine we need teachers objects, for this we can create Teacher class. Now think of the possible properties for a teacher.
+ - teacher has id/roll
+ - teacher has name
+ - teacher can be present or absent
+ - teacher has a position(head, assistant etc)
+
+ - comparing teacher with student, teacher has 4 property and 3 of them are same as student properties,
+ - and the 4th property of teacher is new
+ - So what we do, shall we create teacher class with all properties again,
+ - or is there any way to use Student class in Teacher class
+ - Yeah, there is.
+ - we can extend StudentInfo class to Teacher class by using extends keyword.
+ - and in constructor use super keyword to call the members(properties, methods) of the Super class(StudentInfo).
+ - Teacher as a subclass of StudentInfo inherits all the members(fields, methods etc).
+ - and since constructs are not members they are not inherited by subclasses.
+*/
+var Teacher = /** @class */ (function (_super) {
+    __extends(Teacher, _super);
+    function Teacher(roll, name, isPresent, position) {
+        var _this = _super.call(this, roll, name, isPresent) || this;
+        _this.position = position;
+        return _this;
+    }
+    return Teacher;
+}(StudentInfo));
+var teacher1 = new Teacher(2313, 'Rahman', true, 'Head');
+var teacher2 = new Teacher(3423, 'Arif', false, 'Assistant');
+console.log(teacher1.position);
+// calling student class method from teacher a object created from teacher class
+console.log(teacher2.checkAvailability());
