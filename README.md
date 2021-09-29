@@ -31,3 +31,15 @@ TypeScript is an open source language and is a superset of JavaScript
 - Many tools include TS compilation by default
 - Most IDEs have great support for TS
 - The tsconfig.json file is used to configure how TypeScript works
+
+### Lets make our hand dirty with TypeScript
+Environment Setup:
+- First we need to install TypeScript globally in our machine
+  - Using npm `npm i -g typescript`
+  - Using yarn `yarn add global typescript`
+- Create a folder with .ts extension
+- In the terminal type `tsc fileName` it will compile ts file down to js
+- To manage how to compile a typescript file in terminal type ``
+- And it will create a `tsconfig.json` file where you can manage your ts file compilation and others
+
+
