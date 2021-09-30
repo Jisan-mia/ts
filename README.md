@@ -263,7 +263,9 @@ let employeeCode2 = code as number;
 - arguments types define what types of value we can pass 
 - return type defines what types of value we can return from a function
 
-**Note:** sometimes we don't want to return any any value from function, maybe we just want to console.log() something. In that case we can use **void** as function return type
+**Note-1:** In case we want an argument optional, mean we can both pass and not pass that argument in function call. For this we can make arg. optional by adding **question mark (?)** at end of arg. name
+
+**Note-2:** Sometimes we don't want to return any any value from function, maybe we just want to console.log() something. In that case we can use **void** as function return type
 
 ```ts
 // examples
