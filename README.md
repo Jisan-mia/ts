@@ -407,9 +407,10 @@ To create class->
   - so we can pass **parameters** to constructor and **initialize** those to properties by adding **this keyword and dot (this.) before property name** 
 
 There is another thing called Access Modifiers
-- now Person **class** properties are **public** means we can **modify/change** there values outside of that class
+- now Person **class** properties are **public**(by default) means we can **access/modify** there values outside of that class
 - we can make properties **private** by adding private **keyword** before properties name (mean we can only **access/modify** these properties withing the **class**)
 - we can make properties **protected** by adding protected keyword before properties name (access it only access within either this class or any class that is **extended** from this class )
+- also we can make particular property to be read only by using ***readOnly*** keyword before their names like objects. **readOnly** properties are only accessible not change/modifiable.
 
 ```ts
 // examples

@@ -53,6 +53,7 @@ var Player = /** @class */ (function () {
 }());
 var sakib = new Player('Sakib', 38, 'Bangladesh');
 var masrafee = new Player('masrafee', 41, 'Bangladesh');
+// sakib.age = 39 // error
 var players = [];
 players.push(sakib);
 players.push(masrafee);

@@ -88,7 +88,7 @@ userDetails(3, {name: 'jisan', age: 19})
 // classes
 class Player {
   name: string
-  age:  number
+  private age:  number
   country: string
 
   constructor(name: string, age: number, country: string) {
@@ -104,6 +104,8 @@ class Player {
 }
 const sakib = new Player('Sakib', 38, 'Bangladesh')
 const masrafee = new Player('masrafee', 41, 'Bangladesh')
+
+// sakib.age = 39 // error
 
 const players: Player[] = []
 
