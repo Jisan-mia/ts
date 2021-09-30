@@ -33,3 +33,41 @@ let a: (string | number) [] = []
 a.push('Jisan')
 a.push(5)
 
+// function
+const addNumbers = (a: number, b: number, c?: number): number => {
+  return a + b
+}
+addNumbers(5,8)
+
+//  Type Aliases
+/* 
+  with type alias we can make type schema or structure objects, function arguments, variables etc
+  To create type aliases
+    - type keyword
+    - type alias Name
+    - and then types schema
+*/
+type StudentDetails = {
+  name: string;
+  age: number; 
+  isCaptain?: boolean;
+  semester: number;
+}
+
+type stringOrNum = string | number
+
+function getStudentDetails(studentDetails: StudentDetails, classTeacherId: stringOrNum): string {
+  return `
+      name: ${studentDetails.name}
+      age: ${studentDetails.age}
+      isCaptain: ${studentDetails.isCaptain}
+      semester: ${studentDetails.semester}
+      classTeacherId: ${classTeacherId}
+    `
+}
+
+const studentDetail1 = getStudentDetails({name: 'Jisan', age:19, isCaptain: true, semester: 3}, 324422)
+
+const studentDetail2 = getStudentDetails({name: 'Rahman', age:20, semester: 3}, '4523x4')
+console.log(studentDetail2)
+
