@@ -93,7 +93,7 @@ x = 5 // ok
 let a; // it has any type
 a = true
 ```
-**Note-4**: When we declare a variable and assign a value, but don't set any type to this. In that case TypeScript will set its type according to the value. In TS it's called infer.
+**Note-4**: When we declare a variable and assign a value, but don't set any type to this. In that case TypeScript will set its type according to the value. In TS it's called type inference in TypeScript.
 ```ts
 let z = 10 // it has number type
 z = 'hi' // error
