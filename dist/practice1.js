@@ -33,3 +33,27 @@ function getStudentDetails(studentDetails, classTeacherId) {
 var studentDetail1 = getStudentDetails({ name: 'Jisan', age: 19, isCaptain: true, semester: 3 }, 324422);
 var studentDetail2 = getStudentDetails({ name: 'Rahman', age: 20, semester: 3 }, '4523x4');
 console.log(studentDetail2);
+// function signatures
+var userDetails;
+userDetails = function (id, user) {
+    console.log("id: " + id + ", userName: " + user.name);
+};
+userDetails(3, { name: 'jisan', age: 19 });
+// classes
+var Player = /** @class */ (function () {
+    function Player(name, age, country) {
+        this.name = name;
+        this.age = age;
+        this.country = country;
+    }
+    Player.prototype.play = function () {
+        return this.name + " is playing from " + this.country;
+    };
+    return Player;
+}());
+var sakib = new Player('Sakib', 38, 'Bangladesh');
+var masrafee = new Player('masrafee', 41, 'Bangladesh');
+var players = [];
+players.push(sakib);
+players.push(masrafee);
+console.log(players);

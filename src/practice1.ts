@@ -71,3 +71,42 @@ const studentDetail1 = getStudentDetails({name: 'Jisan', age:19, isCaptain: true
 const studentDetail2 = getStudentDetails({name: 'Rahman', age:20, semester: 3}, '4523x4')
 console.log(studentDetail2)
 
+// function signatures
+let userDetails: (id: stringOrNum, userInfo: {
+  name: string, 
+  age: number
+}) => void;
+
+userDetails = (id: stringOrNum, user: {
+  name: string,
+  age: number
+}) => {
+  console.log(`id: ${id}, userName: ${user.name}`)
+}
+userDetails(3, {name: 'jisan', age: 19})
+
+// classes
+class Player {
+  name: string
+  age:  number
+  country: string
+
+  constructor(name: string, age: number, country: string) {
+    this.name = name
+    this.age = age
+    this.country = country
+  }
+
+  play() {
+    return `${this.name} is playing from ${this.country}`
+  }
+
+}
+const sakib = new Player('Sakib', 38, 'Bangladesh')
+const masrafee = new Player('masrafee', 41, 'Bangladesh')
+
+const players: Player[] = []
+
+players.push(sakib)
+players.push(masrafee)
+console.log(players)
