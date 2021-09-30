@@ -1,5 +1,5 @@
 ## What is TypeScript
-TypeScript is an open source language and is a superset of JavaScript
+TypeScript is an open source language and is a superset of JavaScript created by Microsoft.
 
 - Offers additional features so JavaScript including static types
 - Using types is completely optional
@@ -45,9 +45,10 @@ Environment Setup:
   - Using yarn `yarn global add typescript`
 - Create a folder with .ts extension
 - Check TypeScript version by running this `tsc -v` on your terminal
-- In the terminal type `tsc fileName` it will compile ts file down to js
+- In the terminal type `tsc fileName.ts` it will compile ts file down to js
 - To manage how to compile a typescript file in terminal type `tsc --init`
 - And it will create a `tsconfig.json` file where you can manage your ts file compilation and others
+- `tsconfig.json` is the configuration file for TypeScript project
 - You are all done to maker your hands dirty with ts
 
 
@@ -76,7 +77,7 @@ Some other types are:
   - any
 
    
-**Note-1**: A variable declared with a particular type of value cannot be changed to another type of value
+**Note-1**: If we explicitly set types to variables the value cannot be changed to another types of value. In other word A variable declared with a particular type of value cannot be changed to another type of value
 ```ts
 let salary: number = 20000
 salary = 'twentyK' // error
