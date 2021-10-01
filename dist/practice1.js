@@ -109,3 +109,6 @@ const sInfo2 = {
     id: 1,
     majorSub: Subjects.PHYSICS
 };
+// Tuples
+let m = [5, 'hi', { x: 5 }];
+m[0] = 12;

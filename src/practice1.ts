@@ -180,3 +180,9 @@ const sInfo2: StudentInfoInterface = {
   id: 1,
   majorSub: Subjects.PHYSICS
 }
+
+// Tuples
+let m:[number, string, object] = [5, 'hi', {x: 5}]
+
+m[0] = 12;
+
