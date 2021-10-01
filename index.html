@@ -7,6 +7,11 @@
   <title>Document</title>
 
   <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body{
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: 1rem;
@@ -14,7 +19,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      background-color: #d1d1d152;
   
+    }
+    body::-webkit-scrollbar{
+      display: none;
     }
     .container{
       max-width: 500px;
@@ -39,66 +49,283 @@
       /* Offset the background along the y-axis by top padding */
       background-position: 0 14px;
     }
+    header{
+      background: #2680C0;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 15px;
+      line-height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+      padding: 11px;
+      font-size: 1.3rem;
+      margin-right: 10px;
+      border-bottom: 2px solid transparent;
+    }
+    .underlineStyle{
+      border-bottom: 2px solid rgb(255, 255, 255);
+    }
 
+    .displayNone{
+      display: none;
+    }
+
+
+    .item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px;
+      min-width: 500px;
+    }
+    .left-side{
+      display: flex;
+      justify-content: space-between;
+    }
+  .img{
+    background: #acc0ed;
+    height: 90px;
+    width: 70px;
+    margin-right: 30px;
+
+  }
+  .description{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .description h4{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  .description p{
+    color: #617d98;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  .description button{
+    margin-top: 10px;
+    padding: 2px 4px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #c144446e;
+    color: #d93c3cf2;
+    transition: all 0.1s ease-in-out;
+  }
+  .description button:hover{
+    background-color: #d93c3cf2;
+    color: #fff;
+  }
+
+  .right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .right-side span{
+    color: #0090f7;
+    font-size: 1.2rem;
+    cursor: pointer;
+    
+  }
+
+  .right-side span:first-child {
+    transform: rotate(
+  270deg);
+  }
+  .right-side span:last-child {
+    transform: rotate(
+  90deg);
+    margin-right: -10px;
+  }
+
+  .right-side p{
+    font-size: 1.2rem;
+    color: #05051c;
+    margin-right: -7px;
+  }
+
+  #project-area{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 15px;
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+  }
   </style>
 </head>
 <body>
+
+  <header>
+    <a id='documentBtn' href='#document'>Documentation</a>
+    <a id='projectBtn' href="#projects">Project</a>
+  </header>
+
+  <section class="project" >
+    <div id="project-area"></div>
+
+    <div class="total">
+      <h3>Total</h3>
+      <h3 id='total'>$262</h3>
+    </div>
+  </section>
   
   <pre class="container">
-    // Basic types in TypeScript
-/*
-  to declare a variable with types, structure/step is
+## What is TypeScript
+TypeScript is an open source language and is a superset of JavaScript created by Microsoft.
 
-  i) variable-keyword(var/let/const) 
-  ii) variableName(studentName, id etc)
-  iii) clone(:) 
-  iv) what type of variable it is? (number, string etc)
-  v) assignment-operator(=)
-  vi) value of that type
-  example: 
-    let studentName: string = "Jisan"
-    const studentId: number = 3
+- Offers additional features so JavaScript including static types
+- Using types is completely optional
+- Compiles down to regular JS
+- Can be used for front-end JS as well as backend with Node.js
+- Includes most features from ES6, ES7 (classes, arrow functions, etc)
+- Types from 3rd party libraries can be added with type definitions.
+- Based on the .NET harmony specification
 
-  Some other types are:
-   - number
-   - string
-   - boolean
-   - any
+What's wrong with JavaScript
+- Not suitable for large applications
+- Lacks strong typing
+- Weird inheritance, unfamiliar syntax
+- Only errors during runtime
+- Suffers type coercion
 
-   
-  Note:A variable declared with a particular type of value cannot be changed to another type of value
-  Note2: But when we implicitly set a variable type to any(let x: any = 'hi'), we can change this with any other types of value.
-*/
+### Dynamic vs Static Typing
 
-// examples
+| Dynamic      | Static |
+| ----------- | ----------- |
+| In **dynamically typed languages**, the types are associated with run-time values and not named explicitly in your code      | In **statically typed languages**, you explicitly assign types to variables, function parameters, return values, etc |
+| Eg. **Java, C, C++, Rust, Go**   | Eg. **JavaScript, Python, Ruby, PHP**        |
 
+### Pros & Cons of TypeScript
+|Pros     | Cons      |
+| --------- | --------- |
+| More Robust | More Code to Write |
+| Easily spot Bugs | More To Learn |
+| Predictability | Required Compilation |
+| Readability | Not True Static Typing |
+| Popular |  |
+
+### States of Compiling TypeScript
+
+---
+
+- TypeScript uses .ts and .tsx (working JSX like React) extension
+- TSC (TypeScript Compiler) is used to compile .ts file down to JS
+- Can watch files and report errors at compile time
+- Many tools include TS compilation by default
+- Most IDEs have great support for TS
+- The tsconfig.json file is used to configure how TypeScript works
+
+### Lets make our hand dirty with TypeScript
+
+---
+
+Environment Setup:
+- First we need to install TypeScript globally in our machine
+  - Using npm `npm i -g typescript`
+  - Using yarn `yarn global add typescript`
+- Create a folder with .ts extension
+- Check TypeScript version by running this `tsc -v` on your terminal
+- In the terminal type `tsc fileName.ts` it will compile ts file down to js
+- To manage how to compile a typescript file in terminal type `tsc --init`
+- And it will create a `tsconfig.json` file where you can manage your ts file compilation and others
+- `tsconfig.json` is the configuration file for TypeScript project
+- You are all done to maker your hands dirty with ts
+
+
+### Basic Types in TypeScript
+
+---
+
+I assume you know what is variable in JS (to remind you again, variables are like container where we can store data/values and can access or modify them later)
+
+Steps to create a variable with types in Typescript
+- variable-keyword(var/let/const) 
+- variableName(studentName, id etc)
+- colon(:) 
+- what type of variable it is? (number, string etc)
+- assignment-operator(=)
+- value of that type
+```ts
+// example: 
+let studentName: string = "Jisan"
+const studentId: number = 3
+```
+Some other types are:
+  - number
+  - string
+  - boolean
+  - any
+
+    
+**Note-1**: If we explicitly set types to variables the value cannot be changed to another types of value. In other word A variable declared with a particular type of value cannot be changed to another type of value
+```ts
+let salary: number = 20000
+salary = 'twentyK' // error
+```
+
+**Note-2**: But when we explicitly set a variable type to any, we can change this with any other types of value later.
+```ts
+let x: any = 'hi'
+x = 5 // ok
+```
+**Note-3**: When we just declare a variable with no types and values. TypeScript give any types to this variable automatically.
+```ts
+let a; // it has any type
+a = true
+```
+**Note-4**: When we declare a variable and assign a value, but don't set any type to this. In that case TypeScript will set its type according to the value. In TS it's called type inference in TypeScript.
+```ts
+let z = 10 // it has number type
+z = 'hi' // error
+```
+
+***Other Example of Variables***
+```ts
 let studentId: number = 5;
 let studentName: string = 'Jisan';
 let isPresentToday: boolean = true;
 let x: any = 'Hi';
 x = 10
+```
 
-// Arrays & Tuples
-/* 
-  Lets say we need an array of number/string etc.
+### Arrays 
+
+---
+
+Lets say we need an array of number/string etc.
   - We can define types of array values by writing the type of values and bracket []
-  eg. let nums: [number] 
+  eg. `let nums: [number]` 
   - Now, we cannot add values to that array of another types
-  - Note: if the type is any(any[]) then we can add different types values on that array
-  eg. let arr: any[] = [1, 'hi', true]
-
-*/
-
+  - ***Note:*** if the type is any(any[]) then we can add different types values on that array
+  eg.` let arr: any[] = [1, 'hi', true]`
+```ts
 // examples
-let nums: number[] = [1, 2, 3, 4, 5]
+let nums: number[] = [1, 2, 3, 4, 5]3
 let arr: any[] = [5, false, 'hello']
+```
 
-// Tuples
-/*
-  If we don't want to set any[] type to array instead we want to set types for every value of an array. 
-   - here we can use tuple
-   below is an example
-*/
+### Tuples
+
+---
+
+If we don't want to set any[] type to array instead we want to set types for every value of an array. 
+    - Here we can use tuple
+    below is an example
+```ts
+    
 let person: [number, string, boolean] = [3, 'Jisan', true]
 
 // Tuple array
@@ -109,46 +336,47 @@ employee = [
   [6, 'Doe'],
   [7, 'Jhon']
 ]
+```
 
+### Union
 
-// Union
-/* lets say, wee have some products and each has productId, the value of this can be a number or a randomly generated string
+---
 
-Question is how do we set type to variable which value could be one or another types?
+- Lets say, wee have some products and each has *productId*, the value of this can be a number or a randomly generated string
 
-here it come union, 
-all we need to do is set multiple types separated a Pipe(|) character
-*/
+- Question is how do we set type to variable which value could be one or another types?
+
+- Here it come ***union***, 
+all we need to do is set multiple types separated a ***Pipe ( | ) character***
+```ts
 // example
 let productId: number | string;
 productId = '234xcfswe323'
 productId = 3321
+```
 
+### Enum or enumerate types
 
+---
 
+Enum allows us to define a set of named ***constants***. Using **enums** can make it easier to document intent, or create a set of distinct cases. TypeScript provides both **numeric** and **string-based** enums.
 
+To *define/create* an enum
+- write enum keyword(**enum**)
+- enum name with Capital (first letter)
+- second bracket **{}**
+- constants separated by comma (,)
+  - By default *constants* value are numeric and starts from 0
+  - if we **explicitly** set values (**numeric**) to any particular enum constant, other constants (which are after that constant) value would be **incremented by one**
+  - on the other hand, if we explicitly set value to one of the constants as **string**, we need to set value to the next **constant** as well.
 
-// Enum or enumerate types
-/* 
-  Enum allows us to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides both numeric and string-based enums.
+To get enum particular constant value
+  - First type enum Name(**SubjectsCodes**)
+  - **dot(.)** and
+  - constant name inside that enum(**math**)
 
-  to define/create an enum
-    - write enum keyword(enum)
-    - enum name with Capital (first letter)
-    - second bracket {}
-    - constants separated by comma
-      - by default constants value are numeric and starts from 0
-      - if we implicitly set values(numeric) to any particular enum constant, other constants (which are after that constant) value would be incremented by one
-      - on the other hand, if we implicitly set value to one of the constants as string, we need to set value to the next constant as well.
-
-  to get enum particular constant value
-    - enum Name(SubjectsCodes)
-    - dot(.) and
-    - constant name inside that enum(math)
-  
-  # below is an example of above description
-*/
-
+```ts
+// examples
 enum Directions {
   top, // value is 0
   right, // value is 1
@@ -163,17 +391,17 @@ enum SubjectsCodes {
 }
 
 console.log(SubjectsCodes.chemistry)
+```
 
+### Objects
 
+---
 
+We have a student object which includes *id* and *name* attributes. Now, how to set types for id and name for this **object**. 
 
+Follow the blow example  
 
-// Objects
-/* 
-  We have a student object which includes id and name attributes. Now, how to set types for id and name for this object. 
-  Follow the blow example  
-*/
-
+```ts
 // one way of writing types for objects
 const student: {
   id: number,
@@ -182,6 +410,7 @@ const student: {
   id: 2,
   name: 'Jisan'
 }
+
 
 // another way is to create type in external variable for the object like this
 type Student1 = {
@@ -194,46 +423,45 @@ const student1: Student1 = {
   name: 'Jisan Mia'
 }
 
+```
 
 
+### Type Assertion
 
+---
 
+- Let's assume we have a variable named **code** with a type of any and value **213**
+- we have another variable named **employeeCode**. It uses the code variable value as its value. 
+- but in this case we know that the number of employeeCode must be a **number**. though we already assigned code which has *any type*
+- in this case we can use ***type assertion*** to say that employeeCode value is number
 
+there are **two ways** to do type assertion in ts
+below are examples
 
-
-
-
-// Type Assertion
-/* 
-  - Let's assume we have a variable named code with a type of any and value 213
-  - we have another variable named employeeCode. It uses the code variable value as its value. 
-  - but in this case we know that the number of employeeCode must be a number. though we already assigned code which has any type
-  - in this case we can use type assertion to say that employeeCode value is number
-
-  there are two ways to do type assertion in ts
-  below are examples
-*/
-
+```ts
 // 1. using angular bracket
 let code: any = 200;
 let employeeCode = <number> code;
 
 // 2. using as keyword
 let employeeCode2 = code as number;
+```
 
 
+### Functions
 
+---
 
-
-
-// Functions
-/* 
-- in functions we can give type to arguments as well as to the return value
+- in functions we can give type to ***arguments*** as well as to the return ***value***
 - arguments types define what types of value we can pass 
 - return type defines what types of value we can return from a function
 
-Note: sometimes we don't want to return any any value from function, maybe we just want to console.log() something. In that case we can use void as function return type
-*/
+**Note-1:** In case we want an argument optional, mean we can both pass and not pass that argument in function call. For this we can make arg. optional by adding **question mark (?)** at end of arg. name
+
+**Note-2:** Sometimes we don't want to return any any value from function, maybe we just want to console.log() something. In that case we can use **void** as function return type
+
+```ts
+// examples
 function addTwoNum(a: number, b: number): number {
   return a + b;
 }
@@ -245,31 +473,70 @@ function logMe(message: string): void {
 }
 logMe('Hey, me void')
 
+```
 
-// interfaces
-/* 
- - interface is kind of like specific   structure of types for an object or functions
+### Type Aliases
 
-  - to create interface  
-    - interface keyword
-    - interface name(EmployeeInterface)
-    - bracket  {}
-    - propertyName : valueTypes
-  -to use interface for object as its types
-    - var/let/const
-    - objName (employeeObj)
-    - colon (:)
-    - interfaceName (EmployeeInterface)
-    - assignment (=) and bracket {}
-    - inside bracket key-value pair as defined in the interface
+---
 
-  - Sometimes, we don't want each and every property of an interface to be mandatory. if we want we can make an interface property option by adding a question mark(?) to the end of their names.
+with type alias we can make type schema or structure objects, function arguments, variables etc
+To create type aliases
+  - type keyword
+  - type alias Name
+  - and then types schema
+```ts
+// examples
+type StudentDetails = {
+  name: string;
+  age: number; 
+  isCaptain?: boolean;
+  semester: number;
+}
 
-  - also we can make particular property to be read only by using readOnly before their names
+type stringOrNum = string | number
 
+function getStudentDetails(studentDetails: StudentDetails, classTeacherId: stringOrNum): string {
+  return `
+      name: ${studentDetails.name}
+      age: ${studentDetails.age}
+      isCaptain: ${studentDetails.isCaptain}
+      semester: ${studentDetails.semester}
+      classTeacherId: ${classTeacherId}
+    `
+}
 
-  => below is an example
-*/
+const studentDetail1 = getStudentDetails({name: 'Jisan', age:19, isCaptain: true, semester: 3}, 324422)
+
+const studentDetail2 = getStudentDetails({name: 'Rahman', age:20, semester: 3}, '4523x4')
+console.log(studentDetail2)
+
+```
+
+### Interfaces
+
+---
+
+Interface is kind of like specific structure of types for an **object or functions**
+
+To *create* interface  
+- interface keyword (**interface**)
+- interface name(**EmployeeInterface**)
+- bracket  **{}**
+- **propertyName : valueTypes**
+
+To use interface for **object** as its types
+- ***var/let/const***
+- objName (*employeeObj*)
+- colon (**:**)
+- interfaceName (*EmployeeInterface*)
+- assignment (**=**) and bracket **{}**
+- inside bracket key-value pair as defined in the interface
+
+- Sometimes, we don't want each and every property of an interface to be ***mandatory***. if we want we can make an interface property **optional** by adding a ***question mark(?)*** to the end of their names.
+
+- also we can make particular property to be read only by using ***readOnly*** keyword before their names
+
+```ts
 // interface with objects
 interface EmployeeInterface {
   readonly id: number,
@@ -281,25 +548,229 @@ let employeeObj: EmployeeInterface = {
   id: 23,
   name: 'Jhon',
 }
+employeeObj.name = 'Mark' 
+
 employeeObj.name = 'Mark' // can change
 // employeeObj.id = 5 // can't change as id is readOnly
 
+```
 
-/* 
-  Note: We cannot use union and primitive in interface
-  => We can do this 
+**Note**: We cannot use ***union*** and ***primitive*** in interface
+
+We can do this 
+  ```ts
   type Pointer = number | string
   const p1: Pointer = 1
-  => but cannot in interface
-  interface Pointer = number | string (thrown error)
+  ```
+  
+But cannot in interface
+  ```ts
+  interface Pointer = number | string; // error
   const p1: Pointer = 1
-*/
-
-// interface with functions
+  ```
 
 
+### Interface with functions
+
+---
+
+
+```ts
+interface MathFunc {
+  (x: number, y: number) : number
+}
+
+const add: MathFunc = (x: number, y: number) : number => x + y
+```
+
+
+### Classes
+
+---
+
+Classes are now available in JavaScript since es6 were introduced. Classes are used to create objects(multiple) or class is a blueprint of object
+
+To create class->
+- first class keyword (**class**)
+- class Name (**Person**)
+- bracket **{}** and some **properties**(class can have properties and methods)
+- **constructor** method
+  - it is a method where we need to initialize values for class properties
+  - constructor method/function will run whenever we ***instantiated*** an object 
+  - so we can pass **parameters** to constructor and **initialize** those to properties by adding **this keyword and dot (this.) before property name** 
+
+There is another thing called Access Modifiers
+- now Person **class** properties are **public**(by default) means we can **access/modify** there values outside of that class
+- we can make properties **private** by adding private **keyword** before properties name (mean we can only **access/modify** these properties withing the **class**)
+- we can make properties **protected** by adding protected keyword before properties name (access it only access within either this class or any class that is **extended** from this class )
+- also we can make particular property to be read only by using ***readOnly*** keyword before their names like objects. **readOnly** properties are only accessible not change/modifiable.
+
+```ts
+// examples
+class Person {
+  private id: number
+  protected roomId: string
+  firstName: string
+  lastName: string
+
+
+  constructor (id: number, roomId: string, firstName: string, lastName: string) {
+    this.id = id
+    this.roomId = roomId
+    this.firstName = firstName
+    this.lastName = lastName
+  }
+
+  // methods
+  getFullName() {
+    return `Full Name: ${this.firstName} ${this.lastName}`
+  }
+}
+
+// initializing/instantiated an object to Person class
+
+const jisan = new Person(25, '23432', 'Jisan', 'Mia')
+
+const mark = new Person(33, '323s4', 'Mark','Adher')
+
+// calling getFullName method of Person class with jsian object
+console.log(jisan.getFullName())
+
+```
+
+### Implement interface in class
+
+---
+
+Create an interface for student information then implement it on class following below
+
+```ts
+
+interface studentInterface {
+    roll: number
+    name: string
+    isPresent: boolean
+    checkAvailability(): string
+}
+
+class StudentInfo implements studentInterface {
+  roll: number
+  name: string
+  isPresent: boolean
+
+  constructor (roll: number, name: string, isPresent: boolean) {
+    this.roll = roll
+    this.name =  name
+    this.isPresent = isPresent
+  }
+
+  checkAvailability() {
+    return `${this.name} is ${this.isPresent ? 'present' : 'not present'}`
+  }
+}
+
+const studentOne = new StudentInfo(1, 'Jisan', true)
+const studentTwo = new StudentInfo(2, 'Mursalin', false)
+
+console.log(studentOne.checkAvailability())
+
+```
+
+Guess What? There is another cool thing to explore. Suppose, now we need an array of allStudents created by that class
+  - what would be the type allStudents array 
+  - there is thing, we can use the `StudentInfo` class as allStudents array type
+  - now we don't need to worry much about allStudents array types
+
+```ts
+const allStudents: StudentInfo = [];
+allStudents.push(studentOne)
+allStudents.push(studentTwo)
+```
+
+
+### Extending classes or subclasses
+
+---
+
+
+Let's imagine we need **teachers** objects, for this we can create Teacher class. Now think of the possible **properties** for a teacher.
+  - teacher has **id/roll**
+  - teacher has **name**
+  - teacher can be **present** or **absent**
+  - teacher has a **position(head, assistant etc)**
+
+
+**Comparing** teacher with **student**, teacher has **4** property and **3** of them are same as student properties, 
+- and the 4th property of teacher is **new**
+- So what we do, shall we **create** teacher class with all properties **again**, 
+- or is there any way to use **Student class** in Teacher class
+- Yeah, there is.
+- we can extend **StudentInfo** class to Teacher class by using **extends** **keyword**.
+- and in constructor use **super keyword** to call the **members**(properties, methods) of the Super class(**StudentInfo**).
+- Teacher as a **subclass** of **StudentInfo** **inherits** all the **members**(fields, methods etc). 
+- and since **constructs** are not members they are not **inherited** by subclasses.
+
+```ts
+// subclass
+class Teacher extends StudentInfo {
+  position: string
+
+  constructor(roll: number, name: string, isPresent: boolean, position: string) {
+
+    super(roll, name, isPresent)
+    this.position = position
+  }
+}
+
+const teacher1 = new Teacher(2313, 'Rahman', true, 'Head')
+const teacher2 = new Teacher(3423, 'Arif', false, 'Assistant')
+
+console.log(teacher1.position)
+
+// calling student class method from teacher a object created from teacher class
+console.log(teacher2.checkAvailability())
+
+```
+
+
+
+
+### Generics
+
+--- 
+
+Now, we want a **reusable** function that can perform some task for different types of values
+- lets say we have a function that takes **array** as arg. and return **arr**
+- the array values type can be **number** or **string**
+- we can use **any type** to function
+- but if we do that, we won't get any error when we push different types values to the **array**
+- to **solve** this problem we can use **generics**
+
+To **implement** this -> 
+- after function name, use **angular bracket(<>)**
+- inside **<>** write something and then use this word as type for **parameter** and **return value**
+- when we call this function with array of number or string as parameter 
+- we should write the **respected** **type** of array value after the function name
+- ex `functionName<typeName>([value])`
+- that's it
+
+
+```ts
+// examples
+function getArray<Type>(item: Type[]): Type[] {
+  return new Array().concat(item)
+}
+
+const numArr = getArray<number>([1, 2, 3, 4])
+const strArr = getArray<string>(['jisan', 'shawon', 'Porag'])
+
+// numArr.push('something') we cannot add string to number array
+
+// strArr.push(5) we cannot add numbers to string array
+```
+    
   </pre>
 
-  <script type='module' src="./dist/practice1.js"></script>
+  <script type='module' src="./dist/project.js"></script>
 </body>
 </html>

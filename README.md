@@ -7,6 +7,14 @@ TypeScript is an open source language and is a superset of JavaScript created by
 - Can be used for front-end JS as well as backend with Node.js
 - Includes most features from ES6, ES7 (classes, arrow functions, etc)
 - Types from 3rd party libraries can be added with type definitions.
+- Based on the .NET harmony specification
+
+What's wrong with JavaScript
+- Not suitable for large applications
+- Lacks strong typing
+- Weird inheritance, unfamiliar syntax
+- Only errors during runtime
+- Suffers type coercion
 
 ### Dynamic vs Static Typing
 
@@ -323,25 +331,25 @@ console.log(studentDetail2)
 
 ---
 
-- Interface is kind of like specific structure of types for an **object or functions**
+Interface is kind of like specific structure of types for an **object or functions**
 
-- To *create* interface  
-  - interface keyword (**interface**)
-  - interface name(**EmployeeInterface**)
-  - bracket  **{}**
-  - **propertyName : valueTypes**
+To *create* interface  
+- interface keyword (**interface**)
+- interface name(**EmployeeInterface**)
+- bracket  **{}**
+- **propertyName : valueTypes**
 
-- To use interface for **object** as its types
-  - ***var/let/const***
-  - objName (*employeeObj*)
-  - colon (**:**)
-  - interfaceName (*EmployeeInterface*)
-  - assignment (**=**) and bracket **{}**
-  - inside bracket key-value pair as defined in the interface
+To use interface for **object** as its types
+- ***var/let/const***
+- objName (*employeeObj*)
+- colon (**:**)
+- interfaceName (*EmployeeInterface*)
+- assignment (**=**) and bracket **{}**
+- inside bracket key-value pair as defined in the interface
 
-  - Sometimes, we don't want each and every property of an interface to be ***mandatory***. if we want we can make an interface property **optional** by adding a ***question mark(?)*** to the end of their names.
+- Sometimes, we don't want each and every property of an interface to be ***mandatory***. if we want we can make an interface property **optional** by adding a ***question mark(?)*** to the end of their names.
 
-  - also we can make particular property to be read only by using ***readOnly*** keyword before their names
+- also we can make particular property to be read only by using ***readOnly*** keyword before their names
 
 ```ts
 // interface with objects
