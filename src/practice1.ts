@@ -132,5 +132,30 @@ let threeDOptions = {
 drawRectangle(threeDOptions) 
 
 
+// Generics  
+const addRandomId = <T extends object>(obj: T) => {
+  let id = Math.floor(Math.random() * 100)
+  return {...obj, id}
+}
 
+const user = addRandomId({
+  name: 'Jisan',
+  age: 19,
+  country: 'Bangladesh'
+})
 
+// interface in generics
+interface ApiResponse<T> {
+  status: number;
+  type: string;
+  data: T
+}
+
+const response1: ApiResponse<object> = {
+  status: 200,
+  type: 'good',
+  data: {
+    name: 'Text',
+    age: 39
+  }
+}
