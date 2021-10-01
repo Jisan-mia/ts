@@ -112,3 +112,25 @@ const players: Player[] = []
 players.push(sakib)
 players.push(masrafee)
 console.log(players)
+
+// interfaces
+interface RectangleOptions {
+  width: number,
+  length: number,
+} 
+
+function drawRectangle(options: RectangleOptions) {
+  let width  = options.width;
+  let length = options.length
+}
+
+let threeDOptions = {
+  width: 20,
+  length: 40,
+  height: 10,
+}
+drawRectangle(threeDOptions) 
+
+
+
+

@@ -23,26 +23,11 @@
   Note:A variable declared with a particular type of value cannot be changed to another type of value
   Note2: But when we implicitly set a variable type to any(let x: any = 'hi'), we can change this with any other types of value.
 */
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 // examples
-var studentId = 5;
-var studentName = 'Jisan';
-var isPresentToday = true;
-var x = 'Hi';
+let studentId = 5;
+let studentName = 'Jisan';
+let isPresentToday = true;
+let x = 'Hi';
 x = 10;
 // Arrays & Tuples
 /*
@@ -55,17 +40,17 @@ x = 10;
 
 */
 // examples
-var nums = [1, 2, 3, 4, 5];
-var arr = [5, false, 'hello'];
+let nums = [1, 2, 3, 4, 5];
+let arr = [5, false, 'hello'];
 // Tuples
 /*
   If we don't want to set any[] type to array instead we want to set types for every value of an array.
    - here we can use tuple
    below is an example
 */
-var person = [3, 'Jisan', true];
+let person = [3, 'Jisan', true];
 // Tuple array
-var employee;
+let employee;
 employee = [
     [5, 'Jack'],
     [6, 'Doe'],
@@ -80,7 +65,7 @@ here it come union,
 all we need to do is set multiple types separated a Pipe(|) character
 */
 // example
-var productId;
+let productId;
 productId = '234xcfswe323';
 productId = 3321;
 // Enum or enumerate types
@@ -123,11 +108,11 @@ console.log(SubjectsCodes.chemistry);
   Follow the blow example
 */
 // one way of writing types for objects
-var student = {
+const student = {
     id: 2,
     name: 'Jisan'
 };
-var student1 = {
+const student1 = {
     id: 1,
     name: 'Jisan Mia'
 };
@@ -142,10 +127,10 @@ var student1 = {
   below are examples
 */
 // 1. using angular bracket
-var code = 200;
-var employeeCode = code;
+let code = 200;
+let employeeCode = code;
 // 2. using as keyword
-var employeeCode2 = code;
+let employeeCode2 = code;
 // Functions
 /*
 - in functions we can give type to arguments as well as to the return value
@@ -163,7 +148,7 @@ function logMe(message) {
     console.log(message);
 }
 logMe('Hey, me void');
-var employeeObj = {
+let employeeObj = {
     id: 23,
     name: 'Jhon',
 };
@@ -198,37 +183,35 @@ employeeObj.name = 'Mark'; // can change
     - we can make properties private by adding private keyword before properties name (mean we can only access/modify these properties withing the class)
     - we can make properties protected by adding protected keyword before properties name (access it only access within either this class or any class that is extended from this class )
 */
-var Person = /** @class */ (function () {
-    function Person(id, roomId, firstName, lastName) {
+class Person {
+    constructor(id, roomId, firstName, lastName) {
         this.id = id;
         this.roomId = roomId;
         this.firstName = firstName;
         this.lastName = lastName;
     }
     // methods
-    Person.prototype.getFullName = function () {
-        return "Full Name: " + this.firstName + " " + this.lastName;
-    };
-    return Person;
-}());
+    getFullName() {
+        return `Full Name: ${this.firstName} ${this.lastName}`;
+    }
+}
 // initializing/instantiated an object to Person class
-var jisan = new Person(25, '23432', 'Jisan', 'Mia');
-var mark = new Person(33, '323s4', 'Mark', 'Adher');
+const jisan = new Person(25, '23432', 'Jisan', 'Mia');
+const mark = new Person(33, '323s4', 'Mark', 'Adher');
 // calling getFullName method of Person class with jsian object
 console.log(jisan.getFullName());
-var StudentInfo = /** @class */ (function () {
-    function StudentInfo(roll, name, isPresent) {
+class StudentInfo {
+    constructor(roll, name, isPresent) {
         this.roll = roll;
         this.name = name;
         this.isPresent = isPresent;
     }
-    StudentInfo.prototype.checkAvailability = function () {
-        return this.name + " is " + (this.isPresent ? 'present' : 'not present');
-    };
-    return StudentInfo;
-}());
-var studentOne = new StudentInfo(1, 'Jisan', true);
-var studentTwo = new StudentInfo(2, 'Mursalin', false);
+    checkAvailability() {
+        return `${this.name} is ${this.isPresent ? 'present' : 'not present'}`;
+    }
+}
+const studentOne = new StudentInfo(1, 'Jisan', true);
+const studentTwo = new StudentInfo(2, 'Mursalin', false);
 console.log(studentOne.checkAvailability());
 //  Extending classes or subclasses
 /*
@@ -249,17 +232,14 @@ let's imagine we need teachers objects, for this we can create Teacher class. No
  - and since constructs are not members they are not inherited by subclasses.
 */
 // subclass
-var Teacher = /** @class */ (function (_super) {
-    __extends(Teacher, _super);
-    function Teacher(roll, name, isPresent, position) {
-        var _this = _super.call(this, roll, name, isPresent) || this;
-        _this.position = position;
-        return _this;
+class Teacher extends StudentInfo {
+    constructor(roll, name, isPresent, position) {
+        super(roll, name, isPresent);
+        this.position = position;
     }
-    return Teacher;
-}(StudentInfo));
-var teacher1 = new Teacher(2313, 'Rahman', true, 'Head');
-var teacher2 = new Teacher(3423, 'Arif', false, 'Assistant');
+}
+const teacher1 = new Teacher(2313, 'Rahman', true, 'Head');
+const teacher2 = new Teacher(3423, 'Arif', false, 'Assistant');
 console.log(teacher1.position);
 // calling student class method from teacher a object created from teacher class
 console.log(teacher2.checkAvailability());
@@ -282,7 +262,7 @@ console.log(teacher2.checkAvailability());
 function getArray(item) {
     return new Array().concat(item);
 }
-var numArr = getArray([1, 2, 3, 4]);
-var strArr = getArray(['jisan', 'shawon', 'Porag']);
+const numArr = getArray([1, 2, 3, 4]);
+const strArr = getArray(['jisan', 'shawon', 'Porag']);
 // numArr.push('something') we cannot add string to number array
 // strArr.push(5) we cannot add numbers to string array
