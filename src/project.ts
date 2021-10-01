@@ -13,7 +13,7 @@ interface Mobile {
   price: number;
   quantity: number;
 }
-const mobileProductCart: Mobile[] = [
+let mobileProductCart: Mobile[] = [
   {
     id: 1,
     name: 'Samsung Galaxy S7',
@@ -38,7 +38,7 @@ let total = 0;
 
 
 
-let clickedBtn: string = 'documentBtn';
+let clickedBtn: string = 'projectBtn';
 toggleFunc()
 
 projectBtn?.addEventListener('click', () => {
@@ -79,32 +79,55 @@ const setTotal = () => {
 }
 setTotal()
 
+window.handleQuantity = (e) => {
+  let args = e.id.split(',')
+  const add = args[1] == 'increment' ? 1 : -1
+  const updatedProduct = mobileProductCart.map(item => {
+    if(item.id == args[0]) {
+      item.quantity += add
+    }
+    return item
+  }).filter(item => item.quantity !== 0)
+  mobileProductCart = [...updatedProduct]
+  loadProducts()
+  setTotal()
+}
 
-const myFunction = (item: Mobile) => {
-  console.log('Button clicked');
+window.handleRemove = (e: any) => {
+  const remainingProduct = mobileProductCart.filter(item => item.id != e.id )
+  console.log(remainingProduct)
+  mobileProductCart = [...remainingProduct]
+  loadProducts()
+  setTotal()
 }
 
 
-mobileProductCart.forEach(item => {
-  if(projectArea) projectArea.innerHTML += `
-    <div class='item'> 
-      <div class='left-side'> 
-        <div class='img'></div>
-        <div class='description'>
-          <h4>$ ${item.name} </h4>
-          <p>$ ${item.price} </p>
-          <button> Remove </button>
+function loadProducts () {
+  let html: string = ''
+  mobileProductCart.forEach(item => {
+     html += `
+      <div class='item'> 
+        <div class='left-side'> 
+          <div class='img'></div>
+          <div class='description'>
+            <h4>$ ${item.name} </h4>
+            <p>$ ${item.price} </p>
+            <button onclick='(handleRemove(this))' id=${item.id}> Remove </button>
+          </div>
+        </div>
+  
+        <div class='right-side'> 
+          <span id=${[item.id, 'increment']} onclick='(handleQuantity(this))'> > </span>
+          <p> ${item.quantity} </p>
+          <span id=${[item.id, 'decrement']} onclick='(handleQuantity(this))'> > </span>
         </div>
       </div>
+    `
+  }) 
+  if(projectArea) projectArea.innerHTML = html
+}
 
-      <div class='right-side'> 
-        <span id='incre' onclick='${myFunction(item)}'> > </span>
-        <p> 1 </p>
-        <span> > </span>
-      </div>
-    </div>
-  `
-}) 
+loadProducts()
 
 
 

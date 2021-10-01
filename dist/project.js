@@ -5,7 +5,7 @@ const projectArea = document.querySelector('#project-area');
 const projectBtn = document.querySelector('#projectBtn');
 const documentBtn = document.querySelector('#documentBtn');
 const totalArea = document.querySelector('#total');
-const mobileProductCart = [
+let mobileProductCart = [
     {
         id: 1,
         name: 'Samsung Galaxy S7',
@@ -26,7 +26,7 @@ const mobileProductCart = [
     },
 ];
 let total = 0;
-let clickedBtn = 'documentBtn';
+let clickedBtn = 'projectBtn';
 toggleFunc();
 projectBtn === null || projectBtn === void 0 ? void 0 : projectBtn.addEventListener('click', () => {
     clickedBtn = 'projectBtn';
@@ -56,27 +56,49 @@ const setTotal = () => {
         totalArea.innerHTML = `$ ${total}`;
 };
 setTotal();
-const myFunction = (item) => {
-    console.log('Button clicked');
+window.handleQuantity = (e) => {
+    let args = e.id.split(',');
+    const add = args[1] == 'increment' ? 1 : -1;
+    const updatedProduct = mobileProductCart.map(item => {
+        if (item.id == args[0]) {
+            item.quantity += add;
+        }
+        return item;
+    }).filter(item => item.quantity !== 0);
+    mobileProductCart = [...updatedProduct];
+    loadProducts();
+    setTotal();
 };
-mobileProductCart.forEach(item => {
-    if (projectArea)
-        projectArea.innerHTML += `
-    <div class='item'> 
-      <div class='left-side'> 
-        <div class='img'></div>
-        <div class='description'>
-          <h4>$ ${item.name} </h4>
-          <p>$ ${item.price} </p>
-          <button> Remove </button>
+window.handleRemove = (e) => {
+    const remainingProduct = mobileProductCart.filter(item => item.id != e.id);
+    console.log(remainingProduct);
+    mobileProductCart = [...remainingProduct];
+    loadProducts();
+    setTotal();
+};
+function loadProducts() {
+    let html = '';
+    mobileProductCart.forEach(item => {
+        html += `
+      <div class='item'> 
+        <div class='left-side'> 
+          <div class='img'></div>
+          <div class='description'>
+            <h4>$ ${item.name} </h4>
+            <p>$ ${item.price} </p>
+            <button onclick='(handleRemove(this))' id=${item.id}> Remove </button>
+          </div>
+        </div>
+  
+        <div class='right-side'> 
+          <span id=${[item.id, 'increment']} onclick='(handleQuantity(this))'> > </span>
+          <p> ${item.quantity} </p>
+          <span id=${[item.id, 'decrement']} onclick='(handleQuantity(this))'> > </span>
         </div>
       </div>
-
-      <div class='right-side'> 
-        <span id='incre' onclick='${myFunction(item)}'> > </span>
-        <p> 1 </p>
-        <span> > </span>
-      </div>
-    </div>
-  `;
-});
+    `;
+    });
+    if (projectArea)
+        projectArea.innerHTML = html;
+}
+loadProducts();
