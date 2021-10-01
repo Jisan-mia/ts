@@ -91,3 +91,21 @@ const response1 = {
         age: 39
     }
 };
+// enum
+var Subjects;
+(function (Subjects) {
+    Subjects[Subjects["MATH"] = 0] = "MATH";
+    Subjects[Subjects["ENGLISH"] = 1] = "ENGLISH";
+    Subjects[Subjects["PHYSICS"] = 2] = "PHYSICS";
+    Subjects[Subjects["CHEMISTRY"] = 3] = "CHEMISTRY";
+})(Subjects || (Subjects = {}));
+const sInfo1 = {
+    name: 'Jisan',
+    id: 1,
+    majorSub: Subjects.MATH
+};
+const sInfo2 = {
+    name: 'Jisan',
+    id: 1,
+    majorSub: Subjects.PHYSICS
+};

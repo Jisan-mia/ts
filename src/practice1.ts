@@ -159,3 +159,24 @@ const response1: ApiResponse<object> = {
     age: 39
   }
 }
+
+// enum
+enum Subjects {
+  MATH, ENGLISH, PHYSICS, CHEMISTRY
+}
+interface StudentInfoInterface {
+  name: string;
+  id: number;
+  majorSub: number
+}
+
+const sInfo1: StudentInfoInterface = {
+  name: 'Jisan',
+  id: 1,
+  majorSub: Subjects.MATH
+}
+const sInfo2: StudentInfoInterface = {
+  name: 'Jisan',
+  id: 1,
+  majorSub: Subjects.PHYSICS
+}
