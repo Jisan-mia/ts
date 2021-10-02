@@ -1,7 +1,11 @@
-## What is TypeScript
+## Getting started with TypeScript
 TypeScript is an open source language and is a superset of JavaScript created by Microsoft.
 
-- Offers additional features so JavaScript including static types
+
+
+### More about TypeScript
+
+- Offers additional features to JavaScript including static types
 - Using types is completely optional
 - Compiles down to regular JS
 - Can be used for front-end JS as well as backend with Node.js
@@ -583,3 +587,5 @@ const strArr = getArray<string>(['jisan', 'shawon', 'Porag'])
 
 // strArr.push(5) we cannot add numbers to string array
 ```
+
+### **Resources**: that I used to write this wonderful document about TypeScript are [Sumit bhiay's TypeScript Bangla ( বাংলা ) Tutorial Series](https://www.youtube.com/watch?v=CHnTTzD1pAQ&list=PLHiZ4m8vCp9PgOOjdyNpc6AoBmKNrp_u3), [Traversy Media TS Crash course](https://www.youtube.com/watch?v=BCg4U1FzODs&t=1093s), [TS Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) and obviously Google Search

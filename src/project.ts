@@ -34,7 +34,7 @@ let mobileProductCart: Mobile[] = [
   },
 ]
 
-let total = 0;
+let total:number = 0;
 
 
 
@@ -73,16 +73,16 @@ function toggleFunc () {
 
 
 
-const setTotal = () => {
+const setTotal = (): void => {
   total = mobileProductCart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
   if(totalArea) totalArea.innerHTML = `$ ${total}`
 }
 setTotal()
 
-window.handleQuantity = (e) => {
+window.handleQuantity = (e: any): void => {
   let args = e.id.split(',')
-  const add = args[1] == 'increment' ? 1 : -1
-  const updatedProduct = mobileProductCart.map(item => {
+  const add: number = args[1] == 'increment' ? 1 : -1
+  const updatedProduct: Mobile[] = mobileProductCart.map(item => {
     if(item.id == args[0]) {
       item.quantity += add
     }
@@ -93,8 +93,8 @@ window.handleQuantity = (e) => {
   setTotal()
 }
 
-window.handleRemove = (e: any) => {
-  const remainingProduct = mobileProductCart.filter(item => item.id != e.id )
+window.handleRemove = (e: any): void => {
+  const remainingProduct: Mobile[] = mobileProductCart.filter(item => item.id != e.id )
   console.log(remainingProduct)
   mobileProductCart = [...remainingProduct]
   loadProducts()
@@ -102,7 +102,7 @@ window.handleRemove = (e: any) => {
 }
 
 
-function loadProducts () {
+function loadProducts (): void {
   let html: string = ''
   mobileProductCart.forEach(item => {
      html += `
@@ -110,7 +110,7 @@ function loadProducts () {
         <div class='left-side'> 
           <div class='img'></div>
           <div class='description'>
-            <h4>$ ${item.name} </h4>
+            <h4> ${item.name} </h4>
             <p>$ ${item.price} </p>
             <button onclick='(handleRemove(this))' id=${item.id}> Remove </button>
           </div>
