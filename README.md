@@ -1,7 +1,12 @@
-## What is TypeScript
+## Getting started with TypeScript
+
+
+
+### What is TypeScript
+---
 TypeScript is an open source language and is a superset of JavaScript created by Microsoft.
 
-- Offers additional features so JavaScript including static types
+- Offers additional features to JavaScript including static types
 - Using types is completely optional
 - Compiles down to regular JS
 - Can be used for front-end JS as well as backend with Node.js
