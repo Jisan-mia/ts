@@ -4,7 +4,7 @@ TypeScript is an open source language and is a superset of JavaScript created by
 
 
 ### More about TypeScript
----
+
 - Offers additional features to JavaScript including static types
 - Using types is completely optional
 - Compiles down to regular JS
