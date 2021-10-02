@@ -84,7 +84,7 @@ function loadProducts() {
         <div class='left-side'> 
           <div class='img'></div>
           <div class='description'>
-            <h4>$ ${item.name} </h4>
+            <h4> ${item.name} </h4>
             <p>$ ${item.price} </p>
             <button onclick='(handleRemove(this))' id=${item.id}> Remove </button>
           </div>
