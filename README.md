@@ -588,4 +588,7 @@ const strArr = getArray<string>(['jisan', 'shawon', 'Porag'])
 // strArr.push(5) we cannot add numbers to string array
 ```
 
-### **Resources**: that I used to write this wonderful document about TypeScript are [Sumit bhiay's TypeScript Bangla ( বাংলা ) Tutorial Series](https://www.youtube.com/watch?v=CHnTTzD1pAQ&list=PLHiZ4m8vCp9PgOOjdyNpc6AoBmKNrp_u3), [Traversy Media TS Crash course](https://www.youtube.com/watch?v=BCg4U1FzODs&t=1093s), [TS Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) and obviously Google Search
+### **Resources**: that I used to write this wonderful document about TypeScript 
+- [Sumit bhiay's TypeScript Bangla ( বাংলা ) Tutorial Series](https://www.youtube.com/watch?v=CHnTTzD1pAQ&list=PLHiZ4m8vCp9PgOOjdyNpc6AoBmKNrp_u3), 
+- [Traversy Media TS Crash course](https://www.youtube.com/watch?v=BCg4U1FzODs&t=1093s), 
+- [TS Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) and obviously Google Search
