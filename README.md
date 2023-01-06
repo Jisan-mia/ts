@@ -25,7 +25,7 @@ What's wrong with JavaScript
 | Dynamic      | Static |
 | ----------- | ----------- |
 | In **dynamically typed languages**, the types are associated with run-time values and not named explicitly in your code      | In **statically typed languages**, you explicitly assign types to variables, function parameters, return values, etc |
-| Eg. **Java, C, C++, Rust, Go**   | Eg. **JavaScript, Python, Ruby, PHP**        |
+| Eg. **JavaScript, Python, Ruby, PHP**   | Eg. **Java, C, C++, Rust, Go**       |
 
 ### Pros & Cons of TypeScript
 |Pros     | Cons      |
